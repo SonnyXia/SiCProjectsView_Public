@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SiCLink开发中项目</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="sidebar-hover-zone" aria-hidden="true"></div>
+    <button id="sidebarToggle" class="sidebar-toggle" type="button" title="隐藏目录">☰</button>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">
+            <img src="/assets/menu-logo.png" alt="" onerror="this.hidden=true" />
+            <span>PM</span>
+          </div>
+          <div>
+            <h1>项目开发进程</h1>
+            <p>SiCLink Projects</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <button class="nav-item active" data-view="overview">总览</button>
+          <button class="nav-item" data-view="projects">项目</button>
+          <button class="nav-item" data-view="tasks">任务</button>
+          <button class="nav-item" data-view="milestones">里程碑</button>
+          <button class="nav-item" data-view="docs">文档</button>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="sync-panel">
+            <span id="syncState" class="status-dot pending"></span>
+            <div>
+              <strong id="syncText">等待同步</strong>
+              <small id="syncTime">尚未连接</small>
+            </div>
+          </div>
+          <div class="developer-credit">
+            <span>开发：夏雨奇</span>
+            <a href="mailto:yuqi.xia@siclink.com">yuqi.xia@siclink.com</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p id="dashboardSubtitle" class="eyebrow">飞书多维表格实时数据流大屏</p>
+            <h2 id="viewTitle">SiCLink开发中项目</h2>
+          </div>
+          <div class="actions-hover-zone" aria-hidden="true"></div>
+          <div class="actions">
+            <a class="admin-link" href="/admin.html" title="维护后台">后台</a>
+            <button id="themeToggle" class="icon-button" title="切换深色模式">◐</button>
+            <button id="refreshBtn" class="icon-button" title="立即同步">↻</button>
+          </div>
+        </header>
+
+        <section id="alert" class="alert hidden"></section>
+
+        <section id="overviewView" class="view active">
+          <div class="metrics">
+            <article class="metric"><span id="metricProjectsLabel">项目</span><strong id="metricProjects">0</strong></article>
+            <article class="metric"><span id="metricTasksLabel">任务</span><strong id="metricTasks">0</strong></article>
+            <article class="metric"><span id="metricMilestonesLabel">里程碑</span><strong id="metricMilestones">0</strong></article>
+            <article class="metric"><span id="metricDocsLabel">文档</span><strong id="metricDocs">0</strong></article>
+            <article class="metric accent"><span id="metricProgressLabel">平均完成度</span><strong id="metricProgress">0%</strong></article>
+          </div>
+
+          <section class="panel timeline-panel">
+            <div class="panel-head timeline-head">
+              <div>
+                <h3 id="timelinePanelTitle">项目时间线</h3>
+                <span id="timelinePanelSubtitle">开始、结束、今天位置与里程碑任务</span>
+              </div>
+              <div id="timelineProjectFilter" class="timeline-filter"></div>
+            </div>
+            <div id="projectTimelineList" class="project-timeline-list"></div>
+          </section>
+
+          <div class="dashboard-grid">
+            <section class="panel">
+              <div class="panel-head">
+                <h3 id="projectStatusTitle">项目状态</h3>
+                <span id="projectStatusSubtitle">按状态分布</span>
+              </div>
+              <div id="projectStatusChart" class="bar-chart"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <h3 id="taskStatusTitle">任务状态</h3>
+                <span id="taskStatusSubtitle">执行健康度</span>
+              </div>
+              <div id="taskStatusChart" class="bar-chart"></div>
+            </section>
+            <section class="panel wide">
+              <div class="panel-head">
+                <h3 id="projectProgressTitle">项目进度</h3>
+                <span id="projectProgressSubtitle">来自项目表任务完成度</span>
+              </div>
+              <div id="projectProgressList" class="progress-list"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="projectsView" class="view">
+          <div id="projectsList" class="card-grid"></div>
+        </section>
+
+        <section id="tasksView" class="view">
+          <div id="tasksTable" class="data-table"></div>
+        </section>
+
+        <section id="milestonesView" class="view">
+          <div id="milestonesList" class="timeline"></div>
+        </section>
+
+        <section id="docsView" class="view">
+          <div id="docsList" class="doc-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+    <script src="/settings.js" type="module"></script>
+  </body>
+</html>

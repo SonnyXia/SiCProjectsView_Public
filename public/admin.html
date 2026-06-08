@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>看板维护后台</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <main class="admin-shell">
+      <aside class="admin-side">
+        <div>
+          <p class="eyebrow">Dashboard Admin</p>
+          <h1>看板维护后台</h1>
+        </div>
+        <nav>
+          <a href="#basic">基础展示</a>
+          <a href="#menu">菜单目录</a>
+          <a href="#metrics">指标卡</a>
+          <a href="#panels">总览面板</a>
+          <a href="#developer">开发标注</a>
+        </nav>
+        <a class="admin-back" href="/">返回看板</a>
+      </aside>
+
+      <section class="admin-main">
+        <header class="admin-top">
+          <div>
+            <h2>展示配置</h2>
+            <p>修改后保存，前台看板会自动接收最新配置。</p>
+          </div>
+          <div class="admin-actions">
+            <span id="saveState">未保存</span>
+            <button id="resetBtn" type="button">恢复默认</button>
+            <button id="saveBtn" type="button">保存配置</button>
+          </div>
+        </header>
+
+        <form id="settingsForm" class="admin-form">
+          <section id="basic" class="admin-card">
+            <h3>基础展示</h3>
+            <label>
+              <span>默认主题</span>
+              <select name="theme">
+                <option value="light">明色模式</option>
+                <option value="dark">深色模式</option>
+              </select>
+            </label>
+            <label>
+              <span>看板主标题</span>
+              <input name="dashboardTitle" />
+            </label>
+            <label>
+              <span>副标题模板</span>
+              <input name="subtitleTemplate" />
+              <small>可使用 {fileName} 代表飞书多维表格文件名。</small>
+            </label>
+          </section>
+
+          <section id="menu" class="admin-card">
+            <h3>菜单目录</h3>
+            <label><span>菜单大标题</span><input name="sidebarTitle" /></label>
+            <label><span>菜单小标题</span><input name="sidebarSubtitle" /></label>
+            <div class="admin-grid">
+              <label><span>总览</span><input name="navLabels.overview" /></label>
+              <label><span>项目</span><input name="navLabels.projects" /></label>
+              <label><span>任务</span><input name="navLabels.tasks" /></label>
+              <label><span>里程碑</span><input name="navLabels.milestones" /></label>
+              <label><span>文档</span><input name="navLabels.docs" /></label>
+            </div>
+          </section>
+
+          <section id="metrics" class="admin-card">
+            <h3>指标卡</h3>
+            <div class="admin-grid">
+              <label><span>项目指标</span><input name="metricLabels.projects" /></label>
+              <label><span>任务指标</span><input name="metricLabels.tasks" /></label>
+              <label><span>里程碑指标</span><input name="metricLabels.milestones" /></label>
+              <label><span>文档指标</span><input name="metricLabels.docs" /></label>
+              <label><span>完成度指标</span><input name="metricLabels.averageProgress" /></label>
+            </div>
+          </section>
+
+          <section id="panels" class="admin-card">
+            <h3>总览面板</h3>
+            <div class="admin-grid">
+              <label><span>时间线标题</span><input name="panelTitles.timeline" /></label>
+              <label><span>时间线说明</span><input name="panelTitles.timelineSubtitle" /></label>
+              <label><span>项目状态标题</span><input name="panelTitles.projectStatus" /></label>
+              <label><span>项目状态说明</span><input name="panelTitles.projectStatusSubtitle" /></label>
+              <label><span>任务状态标题</span><input name="panelTitles.taskStatus" /></label>
+              <label><span>任务状态说明</span><input name="panelTitles.taskStatusSubtitle" /></label>
+              <label><span>项目进度标题</span><input name="panelTitles.projectProgress" /></label>
+              <label><span>项目进度说明</span><input name="panelTitles.projectProgressSubtitle" /></label>
+            </div>
+          </section>
+
+          <section id="developer" class="admin-card">
+            <h3>开发标注</h3>
+            <label><span>开发者</span><input name="developerName" /></label>
+            <label><span>联系邮箱</span><input name="developerEmail" type="email" /></label>
+          </section>
+        </form>
+      </section>
+    </main>
+
+    <script src="/admin.js" type="module"></script>
+  </body>
+</html>
